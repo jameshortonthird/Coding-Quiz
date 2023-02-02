@@ -4,33 +4,34 @@ var endSection = document.getElementById("js-end-section")
 var startButton = document.getElementById("js-start-quiz")
 var questionChoicesEl = document.getElementById("js-question-choices")
 var questionTextEl = document.getElementById("js-question-text")
+var correctOrIncorrect = document.getElementById("message")
 var currentQuestionIndex = 0
 
 var questions = [
     {
-        text: "This is question 1",
-        choices: ["monkey", "horse", "cat"],
-        answer: "a"
+        text: "This is a programming languaged used to add styling to webpages",
+        choices: ["JavaScript", "HTML", "CSS"],
+        answer: "CSS"
     },
     {
-        text: "This is question 2",
-        choices: ["car", "house", "lawnn"],
-        answer: "a"
+        text: "Which is used to create dynamic web applications that take user inputs, change what's displayed to users, and animate elements",
+        choices: ["CSS", "HTML", "JavaScript"],
+        answer: "JavaScript"
     },
     {
-        text: "This is question 3",
-        choices: ["a","b","c"],
-        answer: "a"
+        text: "Who is the smartest, and cutest little girl to ever live?",
+        choices: ["Madeline", "Another Kid", "Shirly Temple"],
+        answer: "Madeline"
     },
     {
-        text: "This is question 4",
-        choices: ["a","b","c"],
-        answer: "a"
+        text: "What are reusable blocks of code that perform a specific task?",
+        choices: ["Arrays","Functions","Strings"],
+        answer: "Functions"
     },
     {
-        text: "This is question 5",
-        choices: ["a","b","c"],
-        answer: "a"
+        text: "What is a function that is tied to an Object?",
+        choices: ["Method", "Tailgrab", "Indy"],
+        answer: "Method"
     }
 
 ]
@@ -86,6 +87,14 @@ function renderQuestion(){
             // TODO: Add check if correct button was clicked
             var clickedButtonText = e.target.textContent
             console.log(clickedButtonText);
+
+            // checks to see if correct button was clicked
+            var answerForCurrentQuestion = currentQuestionObj.answer
+            if (clickedButtonText === answerForCurrentQuestion) {
+                correctOrIncorrect.textContent = "Correct!"
+            }else{
+                correctOrIncorrect.textContent = "Incorrect!"
+            }
 
             // inrecments question index by 1 to render next question
             currentQuestionIndex++
