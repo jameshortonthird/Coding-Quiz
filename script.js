@@ -1,5 +1,6 @@
 var startSection = document.getElementById("js-start-section")
-var timer = document.getElementById("time")
+var timer = document.getElementById("timer")
+var secondsLeft = 80
 var quizSection = document.getElementById("js-quiz-section")
 var endSection = document.getElementById("js-end-section")
 var startButton = document.getElementById("js-start-quiz")
@@ -8,7 +9,10 @@ var questionTextEl = document.getElementById("js-question-text")
 var correctOrIncorrect = document.getElementById("message")
 var currentQuestionIndex = 0
 var score = 0;
-document.getElementById("score")
+var initialEl = document.getElementById("js-initials")
+var submitScoreButton= document.getElementById("js-submit-score")
+var userScoresEl= document.getElementById("js-scores-list")
+
 
 var questions = [
     {
@@ -63,9 +67,23 @@ startButton.addEventListener("click", function (){
    startSection.classList.add("is-hidden")
 
 renderQuestion()
+setTime()
 
 
 })
+
+//added function to place timer on web app 
+function setTime(){
+    var timerInterval = setInterval(function(){
+        secondsLeft --;
+        timer.textContent = secondsLeft + "Seconds Remaining";
+
+        if (secondsLeft === 0){
+            clearInterval(timerInterval);
+            sendMessage();
+        }
+    }, 1000);
+}
 
 function renderQuestion(){
     questionChoicesEl.innerHTML = "" // clears existing html in question choices container element
@@ -91,34 +109,52 @@ function renderQuestion(){
             var clickedButtonText = e.target.textContent
             console.log(clickedButtonText);
 
-            // checks to see if correct button was clicked as 
+            // checks to see if correct button was clicked as and increases or decreases score based on whether or not answer is correct
             var answerForCurrentQuestion = currentQuestionObj.answer
             if (clickedButtonText === answerForCurrentQuestion) {
                 correctOrIncorrect.textContent = "Correct!";
+                score++
             }else{
                 correctOrIncorrect.textContent = "Incorrect!"
             }
-
-            // increases or decreases score based on whether or not answer is correct
-            if (clickedButtonText === answerForCurrentQuestion) {
-                score++;
-                }
+          
 
                 document.getElementById("score").innerHTML = score;
 
 
-            // removes hidden classlist from from end section and adds it back to quiz section 
-            if (currentQuestionIndex >= 4) {
-                endSection.classList.remove("is-hidden")
-                quizSection.classList.add("is-hidden") 
-                 
-            }
             // inrecments question index by 1 to render next question
             currentQuestionIndex++
-                renderQuestion()
+            // removes hidden classlist from from end section and adds it back to quiz section 
+            if (currentQuestionIndex >= questions.length) {
+                endSection.classList.remove("is-hidden")
+                quizSection.classList.add("is-hidden") 
+            }else{
+                renderQuestion()    
+            }
+            
+            
+                
         })
 
         questionChoicesEl.append(newButton)
     }
 
+}
+
+// added button to collect user initials and score and save them to local storage 
+submitScoreButton.addEventListener("click", function(){
+    var initials = initialEl.value
+    console.log(initials)
+    var saveItem = initials + " - " + score
+    localStorage.setItem("score",saveItem)
+})
+
+function dispayScores() {
+    // TODO: grab 'score' value from local storage and assign it to a variable
+
+    // TODO: create a list item element using javascript
+
+    // TODO: set the text of the <li> element to the score variable
+    
+    // TODO: append <li> element to score list <ul>
 }
