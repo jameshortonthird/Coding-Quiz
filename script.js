@@ -1,4 +1,5 @@
 var startSection = document.getElementById("js-start-section")
+var timer = document.getElementById("time")
 var quizSection = document.getElementById("js-quiz-section")
 var endSection = document.getElementById("js-end-section")
 var startButton = document.getElementById("js-start-quiz")
@@ -6,6 +7,8 @@ var questionChoicesEl = document.getElementById("js-question-choices")
 var questionTextEl = document.getElementById("js-question-text")
 var correctOrIncorrect = document.getElementById("message")
 var currentQuestionIndex = 0
+var score = 0;
+document.getElementById("score")
 
 var questions = [
     {
@@ -88,17 +91,31 @@ function renderQuestion(){
             var clickedButtonText = e.target.textContent
             console.log(clickedButtonText);
 
-            // checks to see if correct button was clicked
+            // checks to see if correct button was clicked as 
             var answerForCurrentQuestion = currentQuestionObj.answer
             if (clickedButtonText === answerForCurrentQuestion) {
-                correctOrIncorrect.textContent = "Correct!"
+                correctOrIncorrect.textContent = "Correct!";
             }else{
                 correctOrIncorrect.textContent = "Incorrect!"
             }
 
+            // increases or decreases score based on whether or not answer is correct
+            if (clickedButtonText === answerForCurrentQuestion) {
+                score++;
+                }
+
+                document.getElementById("score").innerHTML = score;
+
+
+            // removes hidden classlist from from end section and adds it back to quiz section 
+            if (currentQuestionIndex >= 4) {
+                endSection.classList.remove("is-hidden")
+                quizSection.classList.add("is-hidden") 
+                 
+            }
             // inrecments question index by 1 to render next question
             currentQuestionIndex++
-            renderQuestion()
+                renderQuestion()
         })
 
         questionChoicesEl.append(newButton)
