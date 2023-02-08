@@ -11,7 +11,9 @@ var currentQuestionIndex = 0
 var score = 0;
 var initialEl = document.getElementById("js-initials")
 var submitScoreButton= document.getElementById("js-submit-score")
+var scoresContainer = document.getElementById("js-scores-container")
 var userScoresEl= document.getElementById("js-scores-list")
+var restartQuizButton = document.getElementById("js-restart-quiz-button")
 
 
 var questions = [
@@ -85,6 +87,10 @@ function setTime(){
     }, 1000);
 }
 
+function sendMessage(){
+    alert("OUT OF TIME!!!")
+}
+
 function renderQuestion(){
     questionChoicesEl.innerHTML = "" // clears existing html in question choices container element
     // insert text property from first question object in question array into HTML
@@ -143,18 +149,36 @@ function renderQuestion(){
 
 // added button to collect user initials and score and save them to local storage 
 submitScoreButton.addEventListener("click", function(){
+    endSection.classList.add("is-hidden")
     var initials = initialEl.value
     console.log(initials)
     var saveItem = initials + " - " + score
     localStorage.setItem("score",saveItem)
+    console.log("submit-score-button-clicked")
+
+
+    displayScores() 
 })
 
-function dispayScores() {
+function displayScores() {
+    scoresContainer.classList.remove("is-hidden")
+    var scoreVal = localStorage.getItem("score")
+    console.log(scoreVal)
+    var hiScoreListEl = document.getElementById("li")
+    hiScoreListEl.textContent = scoreVal;
+
+   userScoresEl.append(hiScoreListEl)
+   
+}
+const refreshPage = () => {
+    location.reload();
+}
+restartQuizButton.addEventListener("click", refreshPage)
+    
     // TODO: grab 'score' value from local storage and assign it to a variable
-
+    
     // TODO: create a list item element using javascript
-
+    
     // TODO: set the text of the <li> element to the score variable
     
     // TODO: append <li> element to score list <ul>
-}
