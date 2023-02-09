@@ -78,7 +78,7 @@ setTime()
 function setTime(){
     var timerInterval = setInterval(function(){
         secondsLeft --;
-        timer.textContent = secondsLeft + "Seconds Remaining";
+        timer.textContent = secondsLeft + " Seconds Remaining";
 
         if (secondsLeft === 0){
             clearInterval(timerInterval);
