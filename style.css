@@ -1,3 +1,51 @@
 .is-hidden{
     display: none
 }
+
+#js-start-section{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align:center;
+    color: black;
+    font-size: 150%;
+}
+
+#js-start-quiz:hover{
+    border-color: cyan;
+}
+
+#js-start-quiz{
+    font-size: 200%;
+    background-color: aquamarine;
+}
+
+#timer {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: aquamarine;
+    display:block;
+
+}
+
+button:hover {
+    border-color: cyan;
+}
+
+button {
+    font-size: 150%;
+    background-color: aquamarine;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#js-question-text {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 150%;
+}
+
+h2 {
+    font-size: 150%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+ul {
+    font-size: 150%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
