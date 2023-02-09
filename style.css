@@ -14,6 +14,7 @@
 }
 
 #js-start-quiz{
+    text-align: center;
     font-size: 200%;
     background-color: aquamarine;
 }
@@ -21,7 +22,8 @@
 #timer {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: aquamarine;
-    display:block;
+    display: block;
+    text-align: center;
 
 }
 
@@ -34,19 +36,31 @@ button {
     background-color: aquamarine;
     font-family: 'Courier New', Courier, monospace;
     color: black;
+    align-content: center;
+    text-align: center;
+    display: inline;
 }
 
 #js-question-text {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 150%;
+    text-align: center;
 }
 
 h2 {
     font-size: 150%;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
 }
 
 ul {
     font-size: 150%;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+#message {
+    margin-top: 20px;
+    text-align: center;
+    font-family: Trebuchet;
+    font-weight: bold;
 }

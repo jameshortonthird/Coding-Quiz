@@ -18,12 +18,12 @@ var restartQuizButton = document.getElementById("js-restart-quiz-button")
 
 var questions = [
     {
-        text: "This is a programming languaged used to add styling to webpages",
+        text: "Which is a programming language used to add styling to webpages?",
         choices: ["JavaScript", "HTML", "CSS"],
         answer: "CSS"
     },
     {
-        text: "Which is used to create dynamic web applications that take user inputs, change what's displayed to users, and animate elements",
+        text: "Which is used to create dynamic web applications that take user inputs, change what's displayed to users, and animate elements?",
         choices: ["CSS", "HTML", "JavaScript"],
         answer: "JavaScript"
     },
