@@ -33,6 +33,7 @@ button {
     font-size: 150%;
     background-color: aquamarine;
     font-family: 'Courier New', Courier, monospace;
+    color: black;
 }
 
 #js-question-text {
