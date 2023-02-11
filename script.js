@@ -149,11 +149,15 @@ function renderQuestion(){
 
 // added button to collect user initials and score and save them to local storage 
 submitScoreButton.addEventListener("click", function(){
+   var existingScores = JSON.parse(localStorage.getItem("scores")) || []
+
+
     endSection.classList.add("is-hidden")
     var initials = initialEl.value
     console.log(initials)
     var saveItem = initials + " - " + score
-    localStorage.setItem("score",saveItem)
+    existingScores.push(saveItem)
+    localStorage.setItem("scores",JSON.stringify(existingScores))
     console.log("submit-score-button-clicked")
 
 
@@ -162,7 +166,7 @@ submitScoreButton.addEventListener("click", function(){
 
 function displayScores() {
     scoresContainer.classList.remove("is-hidden")
-    var scoreVal = localStorage.getItem("score")
+    var scoreVal = localStorage.getItem("scores")
     console.log(scoreVal)
     var hiScoreListEl = document.getElementById("li")
     hiScoreListEl.textContent = scoreVal;
